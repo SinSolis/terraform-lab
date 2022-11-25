@@ -11,10 +11,12 @@ variable "vm_associate_public_ip_address" {
 variable "vm_root_volume_size" {
   type        = number
   description = "Root Volume size of the EC2 Instance"
+  default     = 10
 }
 variable "vm_data_volume_size" {
   type        = number
   description = "Data volume size of the EC2 Instance"
+  default     = 10
 }
 variable "vm_root_volume_type" {
   type        = string

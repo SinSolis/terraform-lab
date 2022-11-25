@@ -17,7 +17,34 @@ resource "aws_instance" "vm-server" {
   }
   # extra disk
   ebs_block_device {
-    device_name           = "/dev/xvda"
+    device_name           = "/dev/xvdb"
+    volume_size           = var.vm_data_volume_size
+    volume_type           = var.vm_data_volume_type
+    encrypted             = true
+    delete_on_termination = true
+  }
+
+  # extra disk
+  ebs_block_device {
+    device_name           = "/dev/xvdb"
+    volume_size           = var.vm_data_volume_size
+    volume_type           = var.vm_data_volume_type
+    encrypted             = true
+    delete_on_termination = true
+  }
+
+  # extra disk
+  ebs_block_device {
+    device_name           = "/dev/xvdc"
+    volume_size           = var.vm_data_volume_size
+    volume_type           = var.vm_data_volume_type
+    encrypted             = true
+    delete_on_termination = true
+  }
+
+    # extra disk
+  ebs_block_device {
+    device_name           = "/dev/xvdd"
     volume_size           = var.vm_data_volume_size
     volume_type           = var.vm_data_volume_type
     encrypted             = true
