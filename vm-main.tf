@@ -34,3 +34,16 @@ resource "aws_security_group" "aws-vm-sg" {
     Name = "windows-sg"
   }
 }
+
+# Create Elastic IP for the EC2 instance
+resource "aws_eip" "vm-eip" {
+  vpc  = true
+  tags = {
+    Name = "vm-eip"
+  }
+}
+# Associate Elastic IP to the EC2 Instance
+resource "aws_eip_association" "vm-eip-association" {
+  instance_id   = aws_instance.vm-server.id
+  allocation_id = aws_eip.vm-eip.id
+}

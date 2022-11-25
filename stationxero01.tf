@@ -5,7 +5,7 @@ resource "aws_instance" "vm-server" {
   subnet_id              = aws_subnet.public-subnet.id
   vpc_security_group_ids = [aws_security_group.aws-vm-sg.id]
   source_dest_check      = false
-  #key_name               = aws_key_pair.key_pair.key_name
+  key_name               = aws_key_pair.majora.key_name
   associate_public_ip_address = var.vm_associate_public_ip_address
   
   # root disk
@@ -25,6 +25,6 @@ resource "aws_instance" "vm-server" {
   }
   
   tags = {
-    Name = "test"
+    Name = "stationxero01"
   }
 }
